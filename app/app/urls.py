@@ -1,7 +1,7 @@
-"""app URL Configuration
+"""auction_system URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.contrib.auth import views
+from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/', include('accounts.urls')),
+    # path('', BaseRedirectView.as_view(), name='index')
+    # re_path(r'^.*$', BaseRedirectView.as_view(), name="entry-point"),
 ]
